@@ -1,0 +1,23 @@
+{
+  "name": "claude-plugins",
+  "owner": {
+    "name": "Samuel Cristobal"
+  },
+  "plugins": [
+    {
+      "name": "codex-review",
+      "source": "./plugins/codex-review",
+      "description": "Consensus code review through deliberation between Claude and Codex. Both models independently review code changes, then debate findings until they agree."
+    },
+    {
+      "name": "lsp-servers",
+      "source": "./plugins/lsp-servers",
+      "description": "LSP server configurations for rust-analyzer, clangd, sourcekit-lsp, kotlin-lsp, lua-language-server, ty, tsgo, and gleam."
+    },
+    {
+      "name": "code-review",
+      "source": "./plugins/code-review",
+      "description": "Apply code review comments from .code-review.md files."
+    }
+  ]
+}

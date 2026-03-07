@@ -1,0 +1,43 @@
+{
+  "skill_name": "codex-review",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "review my changes, I added user authentication to the Express app",
+      "expected_output": "A structured code review summary identifying security issues (plaintext password storage, SQL injection), missing input validation, and suggesting improvements like bcrypt and parameterized queries.",
+      "files": ["test-fixtures/eval-1/auth.js"],
+      "assertions": [
+        {"id": "identifies_sql_injection", "text": "Review identifies the SQL injection vulnerability from string-interpolated queries"},
+        {"id": "identifies_plaintext_passwords", "text": "Review identifies that passwords are stored in plaintext without hashing"},
+        {"id": "identifies_hardcoded_credentials", "text": "Review flags the hardcoded database password 'admin123'"},
+        {"id": "identifies_user_data_leak", "text": "Review notes that the login response returns the full user object including password"},
+        {"id": "has_structured_format", "text": "Output uses a structured report format with severity-based sections (critical/warning/suggestion)"}
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "does this look right? I was fixing a race condition in the job queue",
+      "expected_output": "A code review identifying that the race condition fix is incomplete (check-then-act is still non-atomic), suggesting proper locking or atomic operations.",
+      "files": ["test-fixtures/eval-2/queue.py"],
+      "assertions": [
+        {"id": "identifies_missing_lock", "text": "Review identifies that claim_next_job does not hold the lock during the check-then-act sequence"},
+        {"id": "identifies_add_job_race", "text": "Review notes that add_job is not thread-safe (list append and id assignment are unprotected)"},
+        {"id": "identifies_complete_fail_race", "text": "Review notes that complete_job and fail_job also lack locking"},
+        {"id": "has_structured_format", "text": "Output uses a structured report format with severity-based sections (critical/warning/suggestion)"}
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "codex review this - I implemented a thread-safe cache in Rust",
+      "expected_output": "A code review identifying the TOCTOU race in get_or_insert, the unnecessary unsafe impl Send/Sync, the access_count never being incremented, and the cleanup thread holding the lock forever blocking other operations.",
+      "files": ["test-fixtures/eval-3/cache.rs"],
+      "assertions": [
+        {"id": "identifies_toctou_race", "text": "Review identifies the TOCTOU race condition in get_or_insert where another thread can insert between the get check and the set call"},
+        {"id": "identifies_unnecessary_unsafe", "text": "Review flags the manual unsafe impl Send/Sync as unnecessary since Arc<Mutex<_>> already provides these guarantees"},
+        {"id": "identifies_access_count_never_updated", "text": "Review notes that access_count is initialized to 0 but never incremented on get, making the eviction policy broken"},
+        {"id": "identifies_cleanup_thread_lock", "text": "Review identifies that start_cleanup_thread holds the mutex lock in an infinite loop with sleep, blocking all other cache operations during sleep"},
+        {"id": "has_structured_format", "text": "Output uses a structured report format with severity-based sections (critical/warning/suggestion)"}
+      ]
+    }
+  ]
+}

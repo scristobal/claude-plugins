@@ -1,0 +1,12 @@
+{
+  "name": "codex-review",
+  "version": "1.0.0",
+  "description": "Consensus code review through deliberation between Claude and Codex. Both models independently review code changes, then debate findings until they agree.",
+  "author": "Samuel Cristobal",
+  "mcpServers": {
+    "codex": {
+      "command": "codex",
+      "args": ["mcp-server"]
+    }
+  }
+}
