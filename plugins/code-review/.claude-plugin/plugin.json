@@ -1,6 +1,6 @@
 {
   "name": "code-review",
   "version": "1.0.0",
-  "description": "Apply code review comments from .code-review.md files.",
+  "description": "Apply code review comments from .code-review.md files. Companion skill for scristobal/code-review.nvim.",
   "author": "Samuel Cristobal"
 }
