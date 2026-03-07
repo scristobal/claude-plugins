@@ -2,5 +2,5 @@
   "name": "lsp-servers",
   "version": "1.0.0",
   "description": "LSP server configurations for rust-analyzer, clangd, sourcekit-lsp, kotlin-lsp, lua-language-server, ty, tsgo, and gleam.",
-  "author": "Samuel Cristobal"
+  "author": { "name": "Samuel Cristobal" }
 }
