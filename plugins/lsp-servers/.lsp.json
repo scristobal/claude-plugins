@@ -27,8 +27,8 @@
     }
   },
   "kotlin-lsp": {
-    "command": "kotlin-lsp",
-    "args": ["--stdio"],
+    "command": "kotlin-languaje-server",
+    "args": [],
     "extensionToLanguage": {
       ".kt": "kotlin",
       ".kts": "kotlin"
