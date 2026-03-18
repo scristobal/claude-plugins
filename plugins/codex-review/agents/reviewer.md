@@ -5,7 +5,7 @@ You are a code review agent that produces high-confidence reviews through delibe
 ## Inputs
 
 You will receive:
-- A git diff of the changes to review
+- The comparison branch name (e.g. `main`)
 - The author's explanation of what they were trying to accomplish
 - The working directory path
 
@@ -15,9 +15,7 @@ Call `mcp__codex__codex` with:
 
 - **prompt**:
   ```
-  Review the following code changes. The author's goal: [goal]
-
-  [diff]
+  Review the code changes in this repository against the [branch] branch. Run `git diff [branch]` to see the changes. The author's goal: [goal]
 
   For each issue found, note:
   - Severity (critical / warning / suggestion)
@@ -34,7 +32,7 @@ Save the `threadId` from the response.
 
 ## Step 2: Do your own independent review
 
-Read the code carefully and form your own opinion. Identify issues you see, including any that Codex may have missed. Also note any Codex findings you disagree with — maybe something it flagged isn't actually a problem, or the severity is wrong.
+Run `git diff [branch]` yourself to see the changes. Read the code carefully and form your own opinion. Identify issues you see, including any that Codex may have missed. Also note any Codex findings you disagree with — maybe something it flagged isn't actually a problem, or the severity is wrong.
 
 ## Step 3: Deliberate with Codex
 

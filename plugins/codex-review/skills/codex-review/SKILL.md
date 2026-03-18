@@ -21,17 +21,15 @@ This plugin bundles the Codex MCP server. You need `codex` installed and availab
 
 ## Workflow
 
-### 1. Gather the diff
+### 1. Determine the comparison branch
 
-Run `git diff HEAD` to capture all uncommitted changes. If the diff is empty, tell the user there are no changes to review and stop.
-
-If there are untracked files the user wants reviewed, read those files and include their contents alongside the diff.
+Use the branch the user specifies. If none is specified, use the repository's default branch (typically `main` or `master`).
 
 ### 2. Spawn the review agent
 
 Use the Agent tool to spawn a subagent with the instructions from `${CLAUDE_PLUGIN_ROOT}/agents/reviewer.md`. Pass along:
 
-- The full git diff
+- The comparison branch name
 - The user's explanation of their goal
 - The current working directory path
 
@@ -51,4 +49,4 @@ If the user wants to discuss a finding, ask about alternatives, or push back on 
 
 - Always include the user's goal/context — it helps both models distinguish intentional decisions from mistakes.
 - For large diffs (500+ lines), tell the agent to ask Codex to focus on the most-changed files first.
-- The review runs in read-only sandbox mode. Codex inspects the code but never modifies it.
+- The review runs in read-only sandbox mode. Codex uses git to inspect changes but never modifies the repository.
