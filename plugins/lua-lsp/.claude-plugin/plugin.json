@@ -1,0 +1,6 @@
+{
+  "name": "lua-lsp",
+  "version": "1.0.0",
+  "description": "LSP server configuration for lua-language-server.",
+  "author": { "name": "Samuel Cristobal" }
+}

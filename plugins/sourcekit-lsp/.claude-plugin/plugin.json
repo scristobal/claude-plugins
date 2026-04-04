@@ -1,0 +1,6 @@
+{
+  "name": "sourcekit-lsp",
+  "version": "1.0.0",
+  "description": "LSP server configuration for sourcekit-lsp (Swift).",
+  "author": { "name": "Samuel Cristobal" }
+}

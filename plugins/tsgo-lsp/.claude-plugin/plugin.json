@@ -1,0 +1,6 @@
+{
+  "name": "tsgo-lsp",
+  "version": "1.0.0",
+  "description": "LSP server configuration for tsgo (TypeScript/JavaScript).",
+  "author": { "name": "Samuel Cristobal" }
+}

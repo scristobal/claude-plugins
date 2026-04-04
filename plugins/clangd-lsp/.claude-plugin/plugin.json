@@ -1,0 +1,6 @@
+{
+  "name": "clangd-lsp",
+  "version": "1.0.0",
+  "description": "LSP server configuration for clangd (C/C++).",
+  "author": { "name": "Samuel Cristobal" }
+}

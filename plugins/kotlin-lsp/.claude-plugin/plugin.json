@@ -1,0 +1,6 @@
+{
+  "name": "kotlin-lsp",
+  "version": "1.0.0",
+  "description": "LSP server configuration for kotlin-lsp.",
+  "author": { "name": "Samuel Cristobal" }
+}

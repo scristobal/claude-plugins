@@ -1,0 +1,6 @@
+{
+  "name": "rust-analyzer-lsp",
+  "version": "1.0.0",
+  "description": "LSP server configuration for rust-analyzer.",
+  "author": { "name": "Samuel Cristobal" }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "gleam-lsp",
+  "version": "1.0.0",
+  "description": "LSP server configuration for gleam.",
+  "author": { "name": "Samuel Cristobal" }
+}

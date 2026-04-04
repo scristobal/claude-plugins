@@ -1,0 +1,6 @@
+{
+  "name": "ty-lsp",
+  "version": "1.0.0",
+  "description": "LSP server configuration for ty (Python).",
+  "author": { "name": "Samuel Cristobal" }
+}
